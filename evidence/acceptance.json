@@ -1,0 +1,545 @@
+{
+  "schema": "marimay-delimited.acceptance/1",
+  "harness": {
+    "harness_version": "1",
+    "harness_sha256": "e7db6d3bcb596fd8d36a8af14068e83ed928a1c48f67211dfcd2c998a5e546ce",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "compiler": "/path/to/Marimay/marimay/build/release/mmay",
+    "compiler_sha256": "7da536ea73bfdec7809ee6369bc4839133fb99aff4adfc167635d47287c8b0be",
+    "engines": {
+      "vm": {
+        "command": [
+          "/path/to/Marimay/marimay/build/release/mmay",
+          "run",
+          ".",
+          "--allow-read",
+          "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance",
+          "--allow-write",
+          "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance",
+          "--max-heap-bytes",
+          "67108864",
+          "--"
+        ],
+        "executable_sha256": "7da536ea73bfdec7809ee6369bc4839133fb99aff4adfc167635d47287c8b0be"
+      },
+      "debug": {
+        "command": [
+          "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/app-debug"
+        ],
+        "executable_sha256": "389a210d888d84b99e48f057a80e6f0c1c6d596748a20346d45dedcf248a40b1"
+      },
+      "release": {
+        "command": [
+          "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/app-release"
+        ],
+        "executable_sha256": "e38fd947aefe139cabdc42d7e4219b3ed150aa0e94641f5f061426b9b138ddf8"
+      }
+    }
+  },
+  "sources": {
+    "main.my": "85434068ba5e2b198d2f6a8281ea7e7ea0426757a81e78b893a6d3f205b49311",
+    "parser.my": "02995e0b734f5c8cd54e981a34c0df7cab7ca6eacba4f5dc2466b24ecb58731e",
+    "parser_test.my": "aa392522db4ede85be305949ab17d4c9d6373f6dccc46ecddd9b8747a14aa6f3",
+    "support.my": "1dbab2714a96ee9692e0ad239b855549bc16cfb8f34ac0841e2b90a5de1546e4",
+    "writer.my": "dcd488e05ed7c880b1f085cecb80fa40045f9671fbaf7c8a393491ff6f77e49e"
+  },
+  "cases": [
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 0,
+      "stdout_sha256": "71b625bfea53a39308b140a4c57405fb8d5c14857d52dfcc8d7b4fc83d19bd05",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "status": 0,
+      "stdout_sha256": "1b79cd0d9ce8651ce69a2817b2144e81f64f9f9897d83f234ce9a24cf1c6b1a5",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "d03502c43d74a30b936740a9517dc4ea2b2ad7168caa0a774cefe793ce0b33e7",
+      "status": 0,
+      "stdout_sha256": "ef46cd4b81c85a6a49a5d1964ba20286f6c63143cc85687d0d3d4fd0ad18a944",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "f4ffa7c1b72bd7ab6d3314ff47b9d658367ab70e64dc059f8aa9d42138cd95e9",
+      "status": 0,
+      "stdout_sha256": "13134db4eefc545b7b989e707f5ef318ab710d2c7a23a6fc8b361b26d7543c6e",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "d8a101accd0cf91fee870ce0aeef228bc277b402f6ebd1f36120df1ddb6eec89",
+      "status": 0,
+      "stdout_sha256": "873833b7672511b8b30baf5be62752c2d22bf8c8562f3af55d7e67fd32ecdcb2",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "59b271ae1bbcb1d31d41929817f4b16fb439eb4f31520b5ad1d5ce98920a7138",
+      "status": 0,
+      "stdout_sha256": "dc9fddcdfec333c9459fc67003f28c534ef4098f99c1ddc2af84b2f8229c8181",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "1951c7860e968e742658b3af34e60741eb4aaf2a8d2ecc3993727016b12e81e8",
+      "status": 0,
+      "stdout_sha256": "767d767235b0adf5d88a16b6a21a57674f9aaa8994d545e718f08ac6167f8594",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "tsv-to-json",
+        "-"
+      ],
+      "data_sha256": "df26909135cf85e0df66100d5ae5603b29a22d3148db26b7bfde21a4ed7f2485",
+      "status": 0,
+      "stdout_sha256": "f91a5c6d9784b66022cd9ef8005e9e3afae2c795a8b6d2de759dfcbdbcf5c71d",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "83969c28d48e0ab15ad69fe238938dbeef9f34aa0b18244442a7bfe889dfe2ce",
+      "status": 0,
+      "stdout_sha256": "32c736fa5683e7acf7abadefb99dee6f49703b517c095f6d9cfcb9492ee9976d",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "json-to-csv",
+        "-"
+      ],
+      "data_sha256": "32c736fa5683e7acf7abadefb99dee6f49703b517c095f6d9cfcb9492ee9976d",
+      "status": 0,
+      "stdout_sha256": "83969c28d48e0ab15ad69fe238938dbeef9f34aa0b18244442a7bfe889dfe2ce",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "tsv-to-json",
+        "-"
+      ],
+      "data_sha256": "ee7ef509477d6b9a5fa26fbb082240dfaf26e8bf2e33f9558d62729ed2565368",
+      "status": 0,
+      "stdout_sha256": "32c736fa5683e7acf7abadefb99dee6f49703b517c095f6d9cfcb9492ee9976d",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "json-to-tsv",
+        "-"
+      ],
+      "data_sha256": "32c736fa5683e7acf7abadefb99dee6f49703b517c095f6d9cfcb9492ee9976d",
+      "status": 0,
+      "stdout_sha256": "ee7ef509477d6b9a5fa26fbb082240dfaf26e8bf2e33f9558d62729ed2565368",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "4ccb297e23e645d15888cc9202987f8b6bcaabea8649dcb0909ff429ecd845b5",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 1: Кавычка внутри некавыченного поля\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "6af5efd0e03586cd039daf42283779ad3d30ca95664e771ae9e5169260e5883d",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 3: После кавычки ожидается разделитель или конец строки\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "fba6e97680006ae6b73c2c8bd7ba7fb6766a652f2a6203788e58b80cd344a9f5",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 2: Незакрытая кавычка\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "af9081672dd5ef3247a30c2db5b0dafcc9bcf981a26aefb3c55d210d43fcc14e",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 1: Одиночный CR вне кавычек\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "9352b95467bf40616cf74b44b11373df5bbeefd5b1b69f1d458451d6a1d7a0e9",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 5: Неодинаковое число столбцов\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "8dd06b5ab6b594257e41b7d8dd440a4062eddc67fdab5c13b4dc300176896f6e",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 1: Недопустимый UTF-8\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-field",
+        "2"
+      ],
+      "data_sha256": "9b21f5cf014c9efb35110dcccf3a74eab7fb903d1ca2f4054b3dad9ffabb7727",
+      "status": 0,
+      "stdout_sha256": "d8d169ad44614f076d03cc9f9f714fb9f4683648926bcc01e37fa680e66d3e51",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-field",
+        "2"
+      ],
+      "data_sha256": "d0f53946e754bf8cd21b1259a6b487d84a9f0efe1fadf3399f0f05717f3a81c4",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 4: Превышен лимит байт поля\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-rows",
+        "1"
+      ],
+      "data_sha256": "7e18f737311b2dc3b2f269dd78396b0351f14fb66efa879f768cb23181883c78",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 3: Превышен лимит строк\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-columns",
+        "1"
+      ],
+      "data_sha256": "1eb7c54d52831bbfe8942af0b1c56b7409523a59ed6ca99c1174fef7eb32c1b5",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 3: Превышен лимит столбцов\n"
+    },
+    {
+      "arguments": [
+        "json-to-csv",
+        "-"
+      ],
+      "data_sha256": "a7ca83aed68882df06366dd980474fe5c8016a51e46cd1dbe2b18a7ac9aa4317",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: Ожидается version: 1\n"
+    },
+    {
+      "arguments": [
+        "json-to-csv",
+        "-"
+      ],
+      "data_sha256": "ef6b760ff0c4752900d23baf868177751a4deaad7c21a536c8659159a743bea9",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: Строка должна содержать хотя бы одно поле\n"
+    },
+    {
+      "arguments": [
+        "json-to-csv",
+        "-"
+      ],
+      "data_sha256": "3168e65c87a5207245d6228b97808c0487dec6f0ef8743472fac6c2eff8944b9",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: Неодинаковое число столбцов\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "865d47ba6062a3eabc40bff3b1e422af0737b2102d87e15c7cd5455e05acd666",
+      "status": 0,
+      "stdout_sha256": "1b8290ef43c27c45544a97f8ac006f7d73f2ad3416366268cab9cba92ea9acca",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-"
+      ],
+      "data_sha256": "e0c60746be7bb398cdf955afaff8890b9d5d6f0c2eb3784b0449efc1ddc67b31",
+      "status": 0,
+      "stdout_sha256": "473b5565ddeb5930159e4fa3e93ea164a0355bb98adbcf8677cc771a427fa8a5",
+      "stderr": ""
+    },
+    {
+      "arguments": [],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: Нужны РЕЖИМ и ФАЙЛ; см. --help\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-input",
+        "1"
+      ],
+      "data_sha256": "fb8e20fc2e4c3f248c60c39bd652f3c1347298bb977b8b4d5903b85055620603",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: -: standard input exceeds 1-byte limit\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-input",
+        "4"
+      ],
+      "data_sha256": "5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313",
+      "status": 0,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--wat"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: unknown option --wat at argument 2\n"
+    },
+    {
+      "arguments": [
+        "json-to-csv",
+        "-"
+      ],
+      "data_sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: expected a JSON string before byte 1\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/вход ü.txt"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 0,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/вход ü.txt",
+        "--max-input",
+        "1"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: /path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/вход ü.txt: file exceeds 1-byte limit\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--output",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/выход.txt"
+      ],
+      "data_sha256": "5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313",
+      "status": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--output",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/выход.txt"
+      ],
+      "data_sha256": "a4c345ee13b420f55da7173986395e56f8ace5b5c46873e971a2fa7eb4ec1d26",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: байт 13: Незакрытая кавычка\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-output",
+        "0",
+        "--output",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/выход.txt"
+      ],
+      "data_sha256": "5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: Превышен лимит вывода 0 байт\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/missing"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: /path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/missing: filesystem path was not found\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-input=-1"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: --max-input: допустимо 0..1048576\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-input=1048577"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: --max-input: допустимо 0..1048576\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--max-input=no"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: --max-input: ожидается целое число\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/вход ü.txt"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: /path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/вход ü.txt: fs.read capability denied for /path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/вход ü.txt\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--output",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/выход.txt"
+      ],
+      "data_sha256": "5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: fs.write capability denied for /path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/выход.txt\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/link"
+      ],
+      "data_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: /path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/link: symbolic links are not followed\n"
+    },
+    {
+      "arguments": [
+        "csv-to-json",
+        "-",
+        "--output",
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/acceptance/link"
+      ],
+      "data_sha256": "5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313",
+      "status": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "marimay-delimited: symbolic links are not followed\n"
+    }
+  ],
+  "closed_pipes": [
+    {
+      "engine": "vm",
+      "status": 1,
+      "stderr": "marimay-delimited: standard stream flush failed\n"
+    },
+    {
+      "engine": "debug",
+      "status": 1,
+      "stderr": "marimay-delimited: standard stream flush failed\n"
+    },
+    {
+      "engine": "release",
+      "status": 1,
+      "stderr": "marimay-delimited: standard stream flush failed\n"
+    }
+  ],
+  "large_bytes": 524288,
+  "managed_heap_limit": 67108864,
+  "elapsed_seconds": 67.738544542
+}

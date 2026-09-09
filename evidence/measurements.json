@@ -1,0 +1,395 @@
+{
+  "schema": "marimay-delimited.measurements/1",
+  "harness": {
+    "harness_version": "1",
+    "harness_sha256": "e7db6d3bcb596fd8d36a8af14068e83ed928a1c48f67211dfcd2c998a5e546ce",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "compiler": "/path/to/Marimay/marimay/build/release/mmay",
+    "compiler_sha256": "7da536ea73bfdec7809ee6369bc4839133fb99aff4adfc167635d47287c8b0be",
+    "engines": {
+      "native": {
+        "command": [
+          "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release"
+        ],
+        "executable_sha256": "d9d973ceb65232bcf8a2d23f90f29e51f70408caf62440c864519f0963719a50"
+      },
+      "vm": {
+        "command": [
+          "/path/to/Marimay/marimay/build/release/mmay",
+          "run",
+          ".",
+          "--max-heap-bytes",
+          "67108864",
+          "--"
+        ],
+        "executable_sha256": "7da536ea73bfdec7809ee6369bc4839133fb99aff4adfc167635d47287c8b0be"
+      }
+    }
+  },
+  "conditions": "Sequential ordinary desktop. First native execution immediately after this build; no application warmup, no OS-cache eviction or fresh-host claim.",
+  "sources": {
+    "main.my": "85434068ba5e2b198d2f6a8281ea7e7ea0426757a81e78b893a6d3f205b49311",
+    "parser.my": "02995e0b734f5c8cd54e981a34c0df7cab7ca6eacba4f5dc2466b24ecb58731e",
+    "parser_test.my": "aa392522db4ede85be305949ab17d4c9d6373f6dccc46ecddd9b8747a14aa6f3",
+    "support.my": "1dbab2714a96ee9692e0ad239b855549bc16cfb8f34ac0841e2b90a5de1546e4",
+    "writer.my": "dcd488e05ed7c880b1f085cecb80fa40045f9671fbaf7c8a393491ff6f77e49e"
+  },
+  "budgets_sha256": "01f309856feca91b3a864007123a125d36f8df99384f1a4ff8016cd0cc68b739",
+  "build_seconds": 5.342360833,
+  "datasets": [
+    {
+      "name": "small",
+      "input_bytes": 4,
+      "input_sha256": "5be08c9684a1d25efcee09318204824278b08bbfb4aef973ffefd0b9d7478313",
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47"
+    },
+    {
+      "name": "stateful-256k-v1",
+      "input_bytes": 262144,
+      "input_sha256": "bff72090a7622ecf072d20ca332e40deb1f9d0a61f2a0ac04e2f1129a5d81746",
+      "stdout_sha256": "a322432881082903f4f188f7edc4718f5350420195388c9ce5b04204ae22e178"
+    },
+    {
+      "name": "stateful-512k-v1",
+      "input_bytes": 524288,
+      "input_sha256": "e0c60746be7bb398cdf955afaff8890b9d5d6f0c2eb3784b0449efc1ddc67b31",
+      "stdout_sha256": "473b5565ddeb5930159e4fa3e93ea164a0355bb98adbcf8677cc771a427fa8a5"
+    }
+  ],
+  "records": [
+    {
+      "dataset": "small",
+      "engine": "native",
+      "repetition": 0,
+      "seconds": 0.3919662920000002,
+      "seconds_budget": 0.1,
+      "within_time_budget": false,
+      "rss_bytes": 2080768,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.38 real         0.00 user         0.00 sys\n             2080768  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 288  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   3  involuntary context switches\n            16523239  instructions retired\n            10153608  cycles elapsed\n             1032480  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "native",
+      "repetition": 1,
+      "seconds": 0.011491666999999595,
+      "seconds_budget": 0.1,
+      "within_time_budget": true,
+      "rss_bytes": 2080768,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.00 real         0.00 user         0.00 sys\n             2080768  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 290  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   3  involuntary context switches\n            14518812  instructions retired\n             5624761  cycles elapsed\n             1032480  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "native",
+      "repetition": 2,
+      "seconds": 0.008337000000000039,
+      "seconds_budget": 0.1,
+      "within_time_budget": true,
+      "rss_bytes": 2048000,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.00 real         0.00 user         0.00 sys\n             2048000  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 286  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   3  involuntary context switches\n            14484896  instructions retired\n             5133328  cycles elapsed\n              999712  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "native",
+      "repetition": 3,
+      "seconds": 0.0070035000000006065,
+      "seconds_budget": 0.1,
+      "within_time_budget": true,
+      "rss_bytes": 2048000,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.00 real         0.00 user         0.00 sys\n             2048000  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 286  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   3  involuntary context switches\n            14452190  instructions retired\n             5085610  cycles elapsed\n              999712  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "vm",
+      "repetition": 0,
+      "seconds": 0.26644795899999973,
+      "seconds_budget": 0.5,
+      "within_time_budget": true,
+      "rss_bytes": 28524544,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.26 real         0.25 user         0.00 sys\n            28524544  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1901  page reclaims\n                   2  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                  56  involuntary context switches\n          3795926009  instructions retired\n           847327921  cycles elapsed\n            27197752  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "vm",
+      "repetition": 1,
+      "seconds": 0.25588733399999963,
+      "seconds_budget": 0.5,
+      "within_time_budget": true,
+      "rss_bytes": 28459008,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.25 real         0.24 user         0.00 sys\n            28459008  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1898  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                  41  involuntary context switches\n          3797717757  instructions retired\n           851028617  cycles elapsed\n            27148624  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "vm",
+      "repetition": 2,
+      "seconds": 0.25580025000000006,
+      "seconds_budget": 0.5,
+      "within_time_budget": true,
+      "rss_bytes": 28278784,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.25 real         0.24 user         0.00 sys\n            28278784  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1887  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                  40  involuntary context switches\n          3795993262  instructions retired\n           850702617  cycles elapsed\n            26968400  peak memory footprint\n"
+    },
+    {
+      "dataset": "small",
+      "engine": "vm",
+      "repetition": 3,
+      "seconds": 0.25486341700000015,
+      "seconds_budget": 0.5,
+      "within_time_budget": true,
+      "rss_bytes": 28672000,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "3845fa7eafc952c786b81b141ac9cf6bf3258db25a3e6147630012f36bb03c47",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.25 real         0.24 user         0.00 sys\n            28672000  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                1911  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                  52  involuntary context switches\n          3796025280  instructions retired\n           846972175  cycles elapsed\n            27345208  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-256k-v1",
+      "engine": "native",
+      "repetition": 0,
+      "seconds": 0.11035745900000027,
+      "seconds_budget": 2,
+      "within_time_budget": true,
+      "rss_bytes": 68878336,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "a322432881082903f4f188f7edc4718f5350420195388c9ce5b04204ae22e178",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.10 real         0.09 user         0.00 sys\n            68878336  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                4365  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   7  voluntary context switches\n                  24  involuntary context switches\n          1880845801  instructions retired\n           357156716  cycles elapsed\n            67862888  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-256k-v1",
+      "engine": "native",
+      "repetition": 1,
+      "seconds": 0.11294470900000064,
+      "seconds_budget": 2,
+      "within_time_budget": true,
+      "rss_bytes": 68829184,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "a322432881082903f4f188f7edc4718f5350420195388c9ce5b04204ae22e178",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.11 real         0.10 user         0.00 sys\n            68829184  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                4362  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   7  voluntary context switches\n                  35  involuntary context switches\n          1885765227  instructions retired\n           363848351  cycles elapsed\n            67813736  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-256k-v1",
+      "engine": "vm",
+      "repetition": 0,
+      "seconds": 2.730439541,
+      "seconds_budget": 20,
+      "within_time_budget": true,
+      "rss_bytes": 95027200,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "a322432881082903f4f188f7edc4718f5350420195388c9ce5b04204ae22e178",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        2.72 real         2.68 user         0.03 sys\n            95027200  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                5961  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   7  voluntary context switches\n                 650  involuntary context switches\n         34602352800  instructions retired\n          9183046569  cycles elapsed\n            93733248  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-256k-v1",
+      "engine": "vm",
+      "repetition": 1,
+      "seconds": 2.7511674169999996,
+      "seconds_budget": 20,
+      "within_time_budget": true,
+      "rss_bytes": 95436800,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "a322432881082903f4f188f7edc4718f5350420195388c9ce5b04204ae22e178",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        2.74 real         2.68 user         0.03 sys\n            95436800  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                5986  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                   7  voluntary context switches\n                 544  involuntary context switches\n         34616267502  instructions retired\n          9204465882  cycles elapsed\n            94142848  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-512k-v1",
+      "engine": "native",
+      "repetition": 0,
+      "seconds": 0.24912479099999985,
+      "seconds_budget": 2,
+      "within_time_budget": true,
+      "rss_bytes": 83263488,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "473b5565ddeb5930159e4fa3e93ea164a0355bb98adbcf8677cc771a427fa8a5",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.24 real         0.20 user         0.01 sys\n            83263488  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                5244  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  16  voluntary context switches\n                 116  involuntary context switches\n          3776214268  instructions retired\n           722784089  cycles elapsed\n            82280832  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-512k-v1",
+      "engine": "native",
+      "repetition": 1,
+      "seconds": 0.2169321249999996,
+      "seconds_budget": 2,
+      "within_time_budget": true,
+      "rss_bytes": 83214336,
+      "rss_budget": 134217728,
+      "within_rss_budget": true,
+      "stdout_sha256": "473b5565ddeb5930159e4fa3e93ea164a0355bb98adbcf8677cc771a427fa8a5",
+      "command": [
+        "/path/to/Marimay/Marimay-Examples/marimay-delimited/build/measure-1788926109258605000/app-release",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        0.21 real         0.20 user         0.00 sys\n            83214336  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                5241  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  16  voluntary context switches\n                  71  involuntary context switches\n          3771525367  instructions retired\n           714490233  cycles elapsed\n            82231680  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-512k-v1",
+      "engine": "vm",
+      "repetition": 0,
+      "seconds": 7.9088540840000014,
+      "seconds_budget": 20,
+      "within_time_budget": true,
+      "rss_bytes": 110395392,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "473b5565ddeb5930159e4fa3e93ea164a0355bb98adbcf8677cc771a427fa8a5",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        7.90 real         7.64 user         0.08 sys\n           110395392  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                6900  page reclaims\n                   1  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                4741  involuntary context switches\n         81602826045  instructions retired\n         25611745406  cycles elapsed\n           109150640  peak memory footprint\n"
+    },
+    {
+      "dataset": "stateful-512k-v1",
+      "engine": "vm",
+      "repetition": 1,
+      "seconds": 7.886648625000003,
+      "seconds_budget": 20,
+      "within_time_budget": true,
+      "rss_bytes": 107692032,
+      "rss_budget": 268435456,
+      "within_rss_budget": true,
+      "stdout_sha256": "473b5565ddeb5930159e4fa3e93ea164a0355bb98adbcf8677cc771a427fa8a5",
+      "command": [
+        "/path/to/Marimay/marimay/build/release/mmay",
+        "run",
+        ".",
+        "--max-heap-bytes",
+        "67108864",
+        "--",
+        "csv-to-json",
+        "-"
+      ],
+      "timing_stderr": "        7.88 real         7.63 user         0.11 sys\n           107692032  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                6927  page reclaims\n                   4  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   0  messages sent\n                   0  messages received\n                   0  signals received\n                  17  voluntary context switches\n                5444  involuntary context switches\n         81620366754  instructions retired\n         25703041905  cycles elapsed\n           106447280  peak memory footprint\n"
+    }
+  ],
+  "test_both": {
+    "seconds": 0.523966957999999,
+    "seconds_budget": 2,
+    "within_budget": true,
+    "stdout": "test example/marimay-delimited.boundariesAndEmptyFields ... ok\ntest example/marimay-delimited.quotedUnicodeAndNewlines ... ok\ntest example/marimay-delimited.malformedQuoteAndShapeOffsets ... ok\ntest example/marimay-delimited.decodedByteLimits ... ok\ntest example/marimay-delimited.serializationAndRoundTrip ... ok\ntest result: ok. 5 passed; 0 failed\n"
+  }
+}
