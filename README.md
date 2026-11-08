@@ -1,75 +1,50 @@
 # marimay-delimited
 
-Конвертер CSV/TSV ↔ JSON, полностью написанный на Marimay.
+![CSV, TSV and JSON — a Marimay learning project](.github/banner.svg)
 
-Нужен установленный `mmay` с исправлениями диапазонов текста и порядка
-верификации из текущего блока CLI0. Ревизия и хеш проверенного компилятора
-указаны в `VERIFICATION.md`. Зависимостей вне встроенной стандартной библиотеки нет.
+> **Personal learning project.** This open-source MIT project is part of
+> [Marimay](https://github.com/marimay-lang/marimay), my hobby programming-language project.
+> I maintain it in my spare time to learn by building. APIs and tooling may
+> change, and progress may be intermittent.
+
+Converts CSV or quoted TSV to a rectangular JSON table and back. Every field is a string, including headers, numbers and empty values.
+
+**Status:** Experimental Marimay learning application. Process acceptance scripts exercise
+VM and native Debug/Release execution. Full platform and performance acceptance
+remain in progress; existing reports retain their recorded revisions and limits.
+
+## Run and verify
 
 ```sh
+mmay run . -- --help
+mmay run . -- csv-to-json - < fixtures/sample.csv
+mmay run . -- tsv-to-json - < fixtures/sample.tsv
 mmay fmt . --check
 mmay check .
 mmay test . --engine both
-mmay run . -- --help
+MMAY="$(command -v mmay)" python3 tools/acceptance.py
 mkdir -p build
 mmay build . --release --output build/app
 ```
 
-```sh
-mmay run . -- csv-to-json - < fixtures/sample.csv
-mmay run . -- tsv-to-json - < fixtures/sample.tsv
-printf '{"version":1,"rows":[["имя","значение"],["Аня","a,b"]]}' | build/app json-to-csv -
-```
+Install a compatible `mmay` and use its matching standard library. Application
+arguments follow `--` in `mmay run`. Filesystem and environment access requires
+explicit grants; native grants are selected at build time.
 
-Каждое поле — строка, включая заголовки, числа и пустые поля. JSON имеет вид
-`{"version":1,"rows":[["a","b"],["c","d"]]}`. Таблица прямоугольная;
-пустой файл даёт `rows: []`, пустая строка — одно пустое поле. Строка JSON с
-нулём полей, другая версия или разное число столбцов отвергаются.
+JSON uses `{"version":1,"rows":[["a","b"],["c","d"]]}`. Both delimited formats
+support quoted fields, doubled quotes and embedded line breaks. Output quotes
+every field and uses LF record endings. Input/output, rows, columns and fields
+have explicit limits. `-` selects stdin/stdout; `--output` atomically replaces
+a fully prepared result.
 
-CSV разделяется запятой, TSV табуляцией. Оба диалекта поддерживают двойные
-кавычки в начале поля, `""` внутри кавычек, разделители и физические CR/LF
-внутри поля. Снаружи строку завершает LF либо CRLF; одиночный CR, кавычка
-в некавыченном поле и символы после закрывающей кавычки отвергаются.
-Последний перевод строки не создаёт лишнюю запись. Концевой разделитель
-сохраняет пустое поле. Пробелы, NUL, Unicode и BOM сохраняются как данные;
-UTF-8 должен быть корректным. Вывод CSV/TSV канонический: все поля в кавычках,
-кавычки удвоены, разделитель выбран режимом, каждая строка завершена LF.
-Это явно определённый диалект, а не поддержка всех вариантов CSV.
+Python generates synthetic inputs and drives independent process checks;
+application logic is written in Marimay. `MMAY=/absolute/path/to/mmay` selects
+the compiler for Python drivers. `python3 tools/measure.py` runs the existing
+measurement harness and writes local reports under `build/`.
 
-`--max-field` ограничивает декодированные UTF-8 байты поля (по умолчанию
-65536, максимум 262144), `--max-columns` — столбцы (256/4096),
-`--max-rows` — строки (16384/65536). Ноль разрешён. Дополнительно действуют
-лимиты `std/json`: вложенность 128, элементы одного контейнера 65536,
-байты одной строки 262144, вход/выход 1 МиБ.
+See [`BUDGETS.md`](BUDGETS.md), [`ERGONOMICS.md`](ERGONOMICS.md), [`VERIFICATION.md`](VERIFICATION.md) for project-specific budgets,
+findings and historical verification details.
 
-Коды завершения: **0** — успех, **1** — данные/ввод/вывод/лимит,
-**2** — неправильный вызов. Ошибка парсера указывает нулевой байтовый offset.
+## License
 
-Общие параметры: `--max-input` и `--max-output` от 0 до 1048576 байт;
-по умолчанию 1 МиБ. Вход читается полностью до EOF с проверкой предела;
-это ограниченный по размеру инструмент, а не потоковая обработка файлов
-произвольного размера. `-` означает stdin/stdout. `--output/-o ФАЙЛ`
-публикует полностью подготовленные байты атомарной заменой. При ошибке
-разбора, лимите или отказе записи исходный выходной файл сохраняется.
-Символические ссылки не обходятся; файловые операции требуют явных разрешений:
-
-```sh
-mmay run . --allow-read . --allow-write . -- --help
-mmay build . --release --allow-read . --allow-write . --output build/app-files
-```
-
-Разрешения для native задаются при сборке. Само приложение не включает
-доступ к произвольным файлам. Перенаправления shell работают независимо
-от файловых разрешений приложения.
-
-```sh
-python3 tools/acceptance.py
-python3 tools/measure.py
-```
-
-Первый сценарий строит Debug/Release и сравнивает точные байты, статусы и
-файловые эффекты с VM по собственным ожидаемым результатам. Второй измеряет
-неизменяемые наборы и бюджеты из `BUDGETS.md`. `MMAY` выбирает компилятор.
-Результаты находятся в `build/`; хеши, проверенная платформа и ограничения
-приёмки зафиксированы в `VERIFICATION.md`. Python используется только для
-запуска, генерации синтетических тестов и независимой проверки результата.
+[MIT](LICENSE). Existing copyright attribution is retained.

@@ -1,17 +1,20 @@
-# Найденные ограничения и решения
+# Findings, limitations and decisions
 
-| Наблюдение | Класс / владелец | Результат |
+| Observation | Class / owner | Outcome |
 |---|---|---|
-| `text.substring` создавал полный suffix перед копией поля; 512 КиБ CSV исчерпывали VM string pool 64 МиБ | Библиотека + typed MIR/text VM/native | Исправлено общей операцией диапазона; сохраняются обе проверки UTF-8, owned result и ошибки. Регрессия многократно вырезает короткие диапазоны из 512 КиБ. |
-| Сканер 428 блоков/674 регистров не проходил бюджет bytecode verifier | Toolchain / bytecode must-analysis | Исправлено RPO-начальной очередью. Бюджет, meet и invalidation не ослаблены. |
-| Первый запуск нового native-файла превышает 100 мс | Общий startup/host boundary; точная системная причина пока не установлена | Открытый блокер приёмки. Повторные образцы не заменяют первый; security/warmup обходов нет. |
-| Ввод целиком до 1 МиБ, JSON до 1 МиБ | Явная граница приложения и std APIs | Достаточно для указанного диалекта. Обработка произвольно больших файлов не заявляется. |
+| `text.substring` created a full suffix before copying a field; 512 KiB CSV exhausted the 64 MiB VM string pool | Library + typed MIR/text VM/native | Fixed with a shared range operation, retaining both UTF-8 checks, an owned result and errors. The regression repeatedly extracts short ranges from 512 KiB. |
+| A scanner with 428 blocks/674 registers exceeded the bytecode-verifier budget | Toolchain / bytecode must-analysis | Fixed with an RPO-initialized queue. Budget, meet and invalidation were not relaxed. |
+| First execution of a new native file exceeds 100 ms | Shared startup/host boundary; exact system cause unestablished | Open acceptance blocker. Repeated samples do not replace the first execution; no security or warmup workaround. |
+| Whole input up to 1 MiB, JSON up to 1 MiB | Explicit application and standard-API boundary | Sufficient for the defined dialect; arbitrary-size file processing is outside the claim. |
 
-CSV state machine и контексты source-lint различны; общий `support.my` содержит
-только CLI, лимиты, чтение/запись. Драйвер `mmay_acceptance.py` v1 заимствован
-без изменений. Нет ручной сериализации бизнес-record полей вместо `std/json`.
+The CSV state machine and source-lint contexts differ; shared `support.my`
+contains only CLI handling, limits and reading/writing. `mmay_acceptance.py` v1
+was reused unchanged. Business-record fields use `std/json` rather than a
+handwritten serializer. This record preserves historical findings, not a new
+verification of the current compiler.
 
-Парсер собирает escaped fragments через `text.join`, writer использует builder.
-Не добавлялся специальный CSV runtime path. Поддержка кавычек, CR/LF и точных
-byte offsets проверяется source-тестами и независимыми Python csv-oracles
-для синтетических корректных таблиц; malformed-диалект задан явно в README.
+The parser assembles escaped fragments through `text.join`; the writer uses a
+builder. No CSV-specific runtime path was added. Source tests and independent
+Python csv oracles check quoting, CR/LF and exact byte offsets on synthetic
+valid tables; the malformed-input dialect is defined explicitly by the source
+and acceptance tests.
